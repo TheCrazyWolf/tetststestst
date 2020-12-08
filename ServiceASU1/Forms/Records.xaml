@@ -1,0 +1,47 @@
+﻿<Window x:Class="ServiceASU1.Forms.Records"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ServiceASU1.Forms"
+        mc:Ignorable="d"
+        Title="Записи" MinHeight="500" MinWidth="500" Height="450" Width="800" Icon="/source/service_logo.ico">
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="ToolTip" Value="Это надпись"/>
+            <Setter Property="FontFamily" Value="Tw Cen MT"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+        <Style TargetType="Image">
+            <Setter Property="ToolTip" Value="Это картинка"></Setter>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="ToolTip" Value="Это кнопка"/>
+            <Setter Property="Background" Value="#FFFF9C1A"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="95*"/>
+            <RowDefinition Height="276*"/>
+            <RowDefinition Height="98*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="129*"/>
+            <ColumnDefinition Width="523*"/>
+            <ColumnDefinition Width="140*"/>
+        </Grid.ColumnDefinitions>
+        <Button Content="Назад" x:Name="btn_back" Click="btn_back_Click" HorizontalAlignment="Left" Margin="26,56,0,0" VerticalAlignment="Top" Width="75"/>
+
+
+        <DataGrid Name="dt_records" Grid.Row="1" Grid.Column="1" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Услуга " Binding="{Binding Services.Title}" />
+                <DataGridTextColumn Header="Клиент " Binding="{Binding Clients.FirstName}" />
+                <DataGridTextColumn Header="Дата и время " Binding="{Binding DateTimeStart}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        
+    </Grid>
+</Window>

@@ -1,0 +1,28 @@
+        Title="АСУ салона услуг" MinHeight="500" MinWidth="500" Height="450" Width="800" Icon="/source/service_logo.ico">
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="ToolTip" Value="Это надпись"/>
+            <Setter Property="FontFamily" Value="Tw Cen MT"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+        <Style TargetType="Image">
+            <Setter Property="ToolTip" Value="Это картинка"></Setter>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="ToolTip" Value="Это кнопка"/>
+            <Setter Property="Background" Value="#FFFF9C1A"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="95*"/>
+            <RowDefinition Height="276*"/>
+            <RowDefinition Height="98*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="129*"/>
+            <ColumnDefinition Width="523*"/>
+            <ColumnDefinition Width="140*"/>
+        </Grid.ColumnDefinitions>
+    </Grid>

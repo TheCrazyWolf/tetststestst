@@ -1,0 +1,52 @@
+﻿<Window x:Class="ServiceASU1.Forms.Clients"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ServiceASU1.Forms"
+        mc:Ignorable="d"
+        Title="Клиенты" MinHeight="500" MinWidth="500" Height="433.934" Width="837.396" Icon="/source/service_logo.ico">
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="ToolTip" Value="Это надпись"/>
+            <Setter Property="FontFamily" Value="Tw Cen MT"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+        <Style TargetType="Image">
+            <Setter Property="ToolTip" Value="Это картинка"></Setter>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="ToolTip" Value="Это кнопка"/>
+            <Setter Property="Background" Value="#FFFF9C1A"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="95*"/>
+            <RowDefinition Height="276*"/>
+            <RowDefinition Height="98*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="129*"/>
+            <ColumnDefinition Width="523*"/>
+            <ColumnDefinition Width="140*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="btn_back" Click="btn_back_Click"  Content="Назад" HorizontalAlignment="Left" Margin="37,44,0,0" VerticalAlignment="Top" Width="75"/>
+
+        <DataGrid x:Name="dt_clients" Grid.Row="1" Grid.Column="1" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="" Binding="{Binding idClient}" Visibility="Hidden"/>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding FirstName}"/>
+                <DataGridTextColumn Header="Имя" Binding="{Binding SecondName}"/>
+                <DataGridTextColumn Header="Отчество" Binding="{Binding Patronomic}"/>
+                <DataGridTextColumn Header="Пол" Binding="{Binding Sex}"/>
+                <DataGridTextColumn Header="Телефон" Binding="{Binding Phone}"/>
+                <DataGridTextColumn Header="Дата рождения" Binding="{Binding DateBirthday}"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
+                <DataGridTextColumn Header="Дата регистрации" Binding="{Binding DateRegistration}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="btn_del"  Click="btn_del_Click" Content="удалить" Grid.Column="1" HorizontalAlignment="Left" Margin="14,31,0,0" Grid.Row="2" VerticalAlignment="Top" Width="75"/>
+    </Grid>
+</Window>

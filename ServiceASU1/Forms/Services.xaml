@@ -1,0 +1,76 @@
+﻿<Window x:Class="ServiceASU1.Forms.Services"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ServiceASU1.Forms"
+        mc:Ignorable="d"
+        Title="Услуги" MinHeight="500" MinWidth="500" Height="450" Width="800" Icon="/source/service_logo.ico">
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="ToolTip" Value="Это надпись"/>
+            <Setter Property="FontFamily" Value="Tw Cen MT"/>
+        </Style>
+        <Style TargetType="Image">
+            <Setter Property="ToolTip" Value="Это картинка"></Setter>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="ToolTip" Value="Это кнопка"/>
+            <Setter Property="Background" Value="#FFFF9C1A"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="95*"/>
+            <RowDefinition Height="276*"/>
+            <RowDefinition Height="98*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="129*"/>
+            <ColumnDefinition Width="523*"/>
+            <ColumnDefinition Width="140*"/>
+        </Grid.ColumnDefinitions>
+
+        <ListBox x:Name="lb_services" Grid.Row="1" Grid.Column="1">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="200"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="{Binding idService}" Visibility="Hidden"/>
+                        <Image Source="{Binding MainPath}" Grid.Column="0" Grid.Row="0" Grid.RowSpan="4" />
+                        <TextBlock Text="{Binding Title}" Grid.Column="1" Grid.Row="0" FontSize="12"/>
+                        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+                            <TextBlock Text="{Binding OldPrice}" Padding="5" TextDecorations="Strikethrough" Background="Red"/>
+                            <TextBlock Text="{Binding Price}" Padding="5"/>
+                            <TextBlock Text="{Binding Duration}" Padding="5"/>
+                        </StackPanel>
+                        <TextBlock Text="{Binding Discount}" Grid.Column="1" Grid.Row="2"/>
+                        <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal">
+                            <Button x:Name="btn_edit" Content="Редакировать" Click="btn_edit_Click"/>
+                            <Button x:Name="btn_delete" Content="Удалить" Click="btn_delete_Click"/>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <StackPanel Orientation="Vertical" Grid.Column="2" Grid.Row="1">
+            <Button x:Name="sort_Title_A" Click="sort_Title_A_Click" Content="Сортировка по А-Я"/>
+            <Button x:Name="sort_Title_Z" Click="sort_Title_Z_Click" Content="Сортировка по Я-А"/>
+            <Button x:Name="sort_Cost" Click="sort_Cost_Click" Content="Сортировка по цене возр"/>
+            <Button x:Name="sort_Cost_deg" Click="sort_Cost_deg_Click" Content="Сортировка по цене убыв"/>
+            <Button x:Name="sort_add" Click="sort_add_Click" Content="Добавить сервис"/>
+        </StackPanel>
+        <Button Content="Назад" Name="btn_back" Click="btn_back_Click" HorizontalAlignment="Left" Margin="26,56,0,0" VerticalAlignment="Top" Width="75"/>
+    </Grid>
+</Window>
